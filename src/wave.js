@@ -126,6 +126,33 @@ Game.WaveType.Cascade.prototype.emit = function() {
     return bullets;
 };
 
+Game.WaveType.Line = function(nArms, angle, color) {
+    this.nArms = nArms;
+    this.angle = angle;
+    this.spread = 80;
+
+    this.x = 200;
+    this.y = 200;
+    if (color === undefined) { this.color = 'lawngreen'; }
+    else {this.color = color; }
+};
+
+Game.WaveType.Line.prototype.emit = function() {
+    var bullets = [];
+    var dx = 0;
+    var dy = 0;
+    for (var i = -this.nArms/2; i < this.nArms/2; i++) {
+            dx = (10 * i) * Math.cos(this.angle * Math.PI/180);          
+            dy = (10 * i) * Math.sin(this.angle * Math.PI/180);          
+            var b = new Game.Bullet();
+            b.angle = this.angle + 90;
+            b.x = this.x + dx;
+            b.y = this.y + dy;
+            b.color = this.color;
+            bullets.push(b);
+    }
+    return bullets;
+};
 
 
 Game.WaveType.pauseMove = function(bullets, stop1, stop2, time) {

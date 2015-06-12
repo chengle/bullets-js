@@ -2,7 +2,7 @@ Game.Bullet = function() {
     this.x = 200;
     this.y = 10;
    this.v = 150;
-    this.angle = 20; // 0: Right, 90: Down, 180: Left, 270: Up
+    this.angle = 0; // 0: Right, 90: Down, 180: Left, 270: Up
 
     this.color = 'blue';
     this.radius = 5;

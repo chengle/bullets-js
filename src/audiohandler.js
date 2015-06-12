@@ -38,7 +38,6 @@ var AudioHandler = function() {
     this.beatTypes = [s, c, ca, st];
 
     this.colors = ['yellow', 'orange', 'red', 'orange'];
-
 }
 
 /**
@@ -51,7 +50,9 @@ AudioHandler.prototype.getEmission = function(ctx) {
 
     this.analyser.getByteTimeDomainData(this.times);
     this.analyser.getByteFrequencyData(this.freqs);
-    
+    // uncomment below to use self-written FFT instead
+    //this.freqs = FFT(this.times)[0];
+     
     var amplitude = 0;
     var highestFreq = 0;
 

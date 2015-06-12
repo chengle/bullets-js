@@ -11,12 +11,30 @@ Game.ObjectManager = function() {
 
 Game.ObjectManager.prototype.initialize = function(c) { 
     this.canvas = c;
-//    var wave = new Game.WaveType.Stream(4, 4);
-//    wave.x = 250;
-//    this.waveObjs.push(wave);
-//    wave = new Game.WaveType.Spiral(4, 5);
-//    wave.x = 150;
-//    this.waveObjs.push(wave);
+    var wave = new Game.WaveType.Circle(40);
+    wave.x = 250;
+    this.waves.push(wave.emit());
+    wave.x = 150;
+    this.waves.push(wave.emit());
+    wave.y = 300;
+    this.waves.push(wave.emit());
+    wave.x = 250;
+    this.waves.push(wave.emit());
+
+    //wave.x = 250;
+    //this.waves.push(wave.emit());
+
+//    wave = new Game.WaveType.Line(50, 0);
+//    this.waves.push(wave.emit());
+//   wave.angle = 360/5;
+//   this.waves.push(wave.emit());
+//   wave.angle = 360/5 * 2;
+//   this.waves.push(wave.emit());
+//   wave.angle = 360/5 * 3;
+//   this.waves.push(wave.emit());
+//   wave.angle = 360/5 * 4;
+//   this.waves.push(wave.emit());
+
 };
 
 Game.ObjectManager.prototype.update = function(dt) {
